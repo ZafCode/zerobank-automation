@@ -4,7 +4,7 @@ Feature: Find Transactions in Account Activity
 
 
   @beklemede
-  Scenario: Search date range
+  Scenario: Verifying search date range
     Given the user accesses the Find Transactions tab
     When the user enters date range from “2012-09-01“ to “2012-09-06“
     And clicks search
@@ -16,7 +16,7 @@ Feature: Find Transactions in Account Activity
     #And the results table should only not contain transactions dated “2012-09-01”
 
 
-  Scenario: Search description
+  Scenario: Verifying search description
     Given the user accesses the Find Transactions tab
     When the user enters description "ONLINE"
     And clicks search
@@ -27,7 +27,7 @@ Feature: Find Transactions in Account Activity
     But results table should not show descriptions containing "OFFICE"
 
 
-  Scenario: Search description case insensitive
+  Scenario: Verifying search description case insensitive
     Given the user accesses the Find Transactions tab
     When the user enters description "ONLINE"
     And clicks search

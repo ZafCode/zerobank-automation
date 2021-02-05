@@ -1,7 +1,7 @@
 @payee
 Feature: Add new payee under pay bills
 
-  Scenario: Add a new payee
+  Scenario: Verify to add a new payee
     Given Add New Payee tab
     And creates new payee using following information
       | Payee Name    | The Law Offices of Hyde, Price & Scharks |

@@ -27,7 +27,6 @@ public class AddNewPayeeDefs {
     public void message_The_new_payee_was_successfully_created_should_be_displayed(String string) {
         String expected = "The new payee "+string+" was successfully created.";
         String actual = new PayBillsPage().addPayeeMsg.getText();
-
         Assert.assertEquals(expected,actual);
     }
 

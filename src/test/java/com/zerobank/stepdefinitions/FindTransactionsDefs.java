@@ -1,9 +1,7 @@
 package com.zerobank.stepdefinitions;
 
 import com.zerobank.pages.AccountActivityPage;
-import com.zerobank.pages.LoginPage;
 import com.zerobank.utilities.BrowserUtils;
-import com.zerobank.utilities.ConfigurationReader;
 import com.zerobank.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -13,8 +11,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-
-import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
 

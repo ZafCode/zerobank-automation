@@ -11,7 +11,6 @@ import org.junit.Assert;
 import org.openqa.selenium.Alert;
 
 import java.util.List;
-import java.util.Map;
 
 public class PurchaseForeignCurrencyDefs {
 

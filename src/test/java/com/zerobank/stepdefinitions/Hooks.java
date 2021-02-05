@@ -12,7 +12,6 @@ public class Hooks {
     @Before
     public void setUp(){
         Driver.get().manage().window().maximize();
-        System.out.println("\tthis is coming from BEFORE");
     }
 
     @After

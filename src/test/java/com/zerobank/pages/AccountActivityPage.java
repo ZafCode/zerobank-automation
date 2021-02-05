@@ -1,12 +1,7 @@
 package com.zerobank.pages;
 
-import com.zerobank.utilities.BrowserUtils;
-import com.zerobank.utilities.Driver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
-
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -78,18 +73,5 @@ public class AccountActivityPage extends BasePage{
         return false;
     }
 
-
-
-    public void navigateTo(String value){
-        BrowserUtils.waitFor(4);
-        Select dropDownMenu = new Select(accountDropDwn);
-        dropDownMenu.selectByValue(value);
-    }
-
-    public String getText(){
-        String actual = new Select(accountDropDwn).getFirstSelectedOption().getText();
-        System.out.println("actual = " + actual);
-        return actual;
-    }
 
 }
