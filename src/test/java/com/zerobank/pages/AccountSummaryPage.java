@@ -4,6 +4,8 @@ package com.zerobank.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class AccountSummaryPage extends BasePage{
 
     @FindBy(xpath = "//td/a[.='Savings']")
@@ -20,6 +22,9 @@ public class AccountSummaryPage extends BasePage{
 
     @FindBy(linkText = "Loan")
     public WebElement loan;
+
+    @FindBy(className = "board-header")
+    public List<WebElement> accountTypes;
 
 
 

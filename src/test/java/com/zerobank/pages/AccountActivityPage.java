@@ -37,8 +37,8 @@ public class AccountActivityPage extends BasePage{
     @FindBy(id = "aa_description")
     public WebElement description;
 
-    @FindBy(xpath = "//*[@id=\"filtered_transactions_for_account\"]/table/tbody/tr/td[2]")
-    public WebElement descriptionResult;
+    @FindBy(xpath = "//*[@id=\\\"filtered_transactions_for_account\\\"]/table/tbody/tr/td[2]")
+    public List<WebElement> descriptionResult;
 
     @FindBy(xpath = "//*[@id=\"all_transactions_for_account\"]/table/tbody/tr/td[3]")
     public WebElement valueOfDeposit;

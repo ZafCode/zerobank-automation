@@ -63,7 +63,6 @@ public class FindTransactionsDefs {
     public void results_table_should_only_show_descriptions_containing(String str) {
         BrowserUtils.waitFor(2);
         List<WebElement> descWithOnline = Driver.get().findElements(By.xpath("//*[@id=\"filtered_transactions_for_account\"]/table/tbody/tr/td[2]"));
-
         for (WebElement element : descWithOnline) {
             System.out.println("element.getText() = " + element.getText());
             Assert.assertTrue(element.getText().contains(str));

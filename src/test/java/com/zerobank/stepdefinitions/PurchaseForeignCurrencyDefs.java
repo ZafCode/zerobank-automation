@@ -24,7 +24,7 @@ public class PurchaseForeignCurrencyDefs {
     @Then("following currencies should be available")
     public void following_currencies_should_be_available(List<String> currencies ) {
         BrowserUtils.waitFor(2);
-        List<String> actualCurrencies = BrowserUtils.getElementsText(new PayBillsPage().currency);
+        List<String> actualCurrencies= BrowserUtils.getElementsText(new PayBillsPage().currency);
         for (String actualCurrency : actualCurrencies) {
             for (String currency : currencies) {
                 Assert.assertTrue(actualCurrency.contains(currency));

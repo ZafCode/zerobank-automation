@@ -19,7 +19,7 @@ public class AddNewPayeeDefs {
 
     @Given("creates new payee using following information")
     public void creates_new_payee_using_following_information(Map<String,String> payeeInfo) {
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitForClickablility(new PayBillsPage().addNewPayee,4);
         new PayBillsPage().addPayee(payeeInfo.get("Payee Name"), payeeInfo.get("Payee Address"),payeeInfo.get("Account"),payeeInfo.get("Payee details"));
     }
 

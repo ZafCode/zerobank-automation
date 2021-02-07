@@ -20,14 +20,17 @@ public class AccountActivityStepDefs {
         String actualTitle = Driver.get().getTitle();
         Assert.assertTrue(actualTitle.contains("Activity"));
     }
+    @Then("the {string} page should be displayed")
+    public void the_page_should_be_displayed(String string) {
+        String actualTitle = Driver.get().getTitle();
+        Assert.assertTrue("Verify page title contain",actualTitle.contains(string));
+    }
 
-    @Then("Account drop down should have Savings selected")
-    public void account_drop_down_should_have_Savings_selected() {
-
+    @Then("Account drop down should have {string} selected")
+    public void account_drop_down_should_have_selected(String string) {
         Select dropDown = new Select(new AccountActivityPage().accountDropDwn);
         String selectedMenu = dropDown.getFirstSelectedOption().getText();
-        String expectedMenu = "Savings";
-        Assert.assertEquals(expectedMenu,selectedMenu);
+        Assert.assertEquals("Verify selected menu",string,selectedMenu);
     }
 
     @When("the user clicks on Brokerage link on the Account Summary page")
@@ -35,38 +38,16 @@ public class AccountActivityStepDefs {
         new AccountSummaryPage().brokerage.click();
     }
 
-    @Then("Account drop down should have Brokerage selected")
-    public void account_drop_down_should_have_Brokerage_selected() {
-        Select dropDown = new Select(new AccountActivityPage().accountDropDwn);
-        String selectedMenu = dropDown.getFirstSelectedOption().getText();
-        String expectedMenu = "Brokerage";
-        Assert.assertEquals(expectedMenu,selectedMenu);
-    }
 
     @When("the user clicks on Checking link on the Account Summary page")
     public void the_user_clicks_on_Checking_link_on_the_Account_Summary_page() {
         new AccountSummaryPage().checking.click();
     }
 
-    @Then("Account drop down should have Checking selected")
-    public void account_drop_down_should_have_Checking_selected() {
-        Select dropDown = new Select(new AccountActivityPage().accountDropDwn);
-        String selectedMenu = dropDown.getFirstSelectedOption().getText();
-        String expectedMenu = "Checking";
-        Assert.assertEquals(expectedMenu,selectedMenu);
-    }
 
     @When("the user clicks on Credit card link on the Account Summary page")
     public void the_user_clicks_on_Credit_card_link_on_the_Account_Summary_page() {
         new AccountSummaryPage().creditCard.click();
-    }
-
-    @Then("Account drop down should have Credit Card selected")
-    public void account_drop_down_should_have_Credit_Card_selected() {
-        Select dropDown = new Select(new AccountActivityPage().accountDropDwn);
-        String selectedMenu = dropDown.getFirstSelectedOption().getText();
-        String expectedMenu = "Credit Card";
-        Assert.assertEquals(expectedMenu,selectedMenu);
     }
 
     @When("the user clicks on Loan link on the Account Summary page")
@@ -74,12 +55,6 @@ public class AccountActivityStepDefs {
         new AccountSummaryPage().loan.click();
     }
 
-    @Then("Account drop down should have Loan selected")
-    public void account_drop_down_should_have_Loan_selected() {
-        Select dropDown = new Select(new AccountActivityPage().accountDropDwn);
-        String selectedMenu = dropDown.getFirstSelectedOption().getText();
-        String expectedMenu = "Loan";
-        Assert.assertEquals(expectedMenu,selectedMenu);
-    }
+
 
 }
