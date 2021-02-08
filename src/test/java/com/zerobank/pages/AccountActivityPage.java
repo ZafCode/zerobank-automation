@@ -37,16 +37,20 @@ public class AccountActivityPage extends BasePage{
     @FindBy(id = "aa_description")
     public WebElement description;
 
-    @FindBy(xpath = "//*[@id=\\\"filtered_transactions_for_account\\\"]/table/tbody/tr/td[2]")
+    @FindBy(xpath = "//*[@id=\"filtered_transactions_for_account\"]/table/tbody/tr/td[2]")
     public List<WebElement> descriptionResult;
 
     @FindBy(xpath = "//*[@id=\"all_transactions_for_account\"]/table/tbody/tr/td[3]")
-    public WebElement valueOfDeposit;
+    public List<WebElement> valueOfDeposit;
+
+    @FindBy(xpath = "//div[@id='filtered_transactions_for_account']/table/tbody/tr/td[4]")
+    public List<WebElement> valueOfWithdrawal;
 
     @FindBy(id ="aa_type")
     public WebElement selectType;
 
-
+    @FindBy(xpath = "//thead/tr/th")
+    public List<WebElement> columnNames ;
 
 
 
@@ -58,7 +62,7 @@ public class AccountActivityPage extends BasePage{
             SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
 
             String FromDate = "2012-09-01";
-            String ToDate = "2012-09-06";
+            String ToDate = "2014-09-06";
 
             java.util.Date Fdate = fmt.parse(FromDate);
             java.util.Date Tdate = fmt.parse(ToDate);

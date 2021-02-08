@@ -13,7 +13,7 @@ public class AddNewPayeeDefs {
     @Given("Add New Payee tab")
     public void add_New_Payee_tab() {
         new LoginStepDef().the_user_is_logged_in();
-        new PayBillsPage().payBills.click();
+        new PayBillsPage().navigateTo("Pay Bills");
         new PayBillsPage().addNewPayee.click();
     }
 

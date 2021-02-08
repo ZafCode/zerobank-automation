@@ -29,3 +29,27 @@ Feature: Navigating to specific accounts in Accounts Activity
     Then the "Account Activity" page should be displayed
     And Account drop down should have "Loan" selected
 
+
+  Scenario: Verify Account Activity page title
+    When the user navigates to "Account Activity" page
+    Then "Account Activity" page should have the title "Zero - Account Activity"
+    Then In the Account drop down default option should be Savings.
+    Then Account drop down should have the following options:
+      | Savings     |
+      | Checking    |
+      | Loan        |
+      | Credit Card |
+      | Brokerage   |
+    Then Transactions table should have column names
+      | Date        |
+      | Description |
+      | Deposit     |
+      | Withdrawal  |
+
+
+
+
+
+
+
+

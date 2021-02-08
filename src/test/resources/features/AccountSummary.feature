@@ -5,8 +5,11 @@ Feature: Account Summary Page's specifications
     Given the user is logged in
 
 
-  Scenario: Verify that Account summary page have the title Zero – Account Summary.
-    Then Account summary page should have the title "Zero - Account Summary"
+  Scenario: Verify Account summary page title
+    When the user navigates to "Account Summary" page
+    Then "Account Summary" page should have the title "Zero - Account Summary"
+
+  Scenario: Verify Account summary page account types
     Then Account summary page should have to following account types
       | Cash Accounts       |
       | Investment Accounts |
