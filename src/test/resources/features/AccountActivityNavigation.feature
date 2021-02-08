@@ -46,7 +46,8 @@ Feature: Navigating to specific accounts in Accounts Activity
       | Deposit     |
       | Withdrawal  |
 
-  Scenario Outline: Verify different account redirect
+    @wip
+  Scenario Outline: Verify different account redirect <link>
 
     When the user clicks on "<link>" link on the Account Summary page
     Then the "<page>" page should be displayed
