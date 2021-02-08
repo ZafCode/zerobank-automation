@@ -1,3 +1,4 @@
+@payBillsPage
 Feature: Pay Bills Page's specifications
 
   Background:

@@ -13,9 +13,6 @@ public class AccountActivityPage extends BasePage{
     @FindBy(id= "aa_accountId")
     public List<WebElement> dropDownMenu;
 
-    @FindBy(linkText = "Account Activity")
-    public WebElement accountActivity;
-
     @FindBy(linkText = "Find Transactions")
     public WebElement findTransactions;
 

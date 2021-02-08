@@ -36,7 +36,7 @@ Feature: Find Transactions in Account Activity
     Then results table should only show descriptions containing "ONLINE"
 
 
-  Scenario: Type
+  Scenario: Verifying type results
     And clicks search
     Then results table should show at least one result under Deposit
     Then results table should show at least one result under Withdrawal
