@@ -49,6 +49,9 @@ public class AccountActivityPage extends BasePage{
     @FindBy(xpath = "//thead/tr/th")
     public List<WebElement> columnNames ;
 
+    @FindBy (xpath = "//td/a")
+    public List<WebElement> links;
+
 
 
 
