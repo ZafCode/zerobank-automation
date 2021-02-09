@@ -1,5 +1,6 @@
 package com.zerobank.stepdefinitions;
 
+import com.google.common.collect.Ordering;
 import com.zerobank.pages.AccountActivityPage;
 import com.zerobank.utilities.BrowserUtils;
 import com.zerobank.utilities.Driver;
@@ -12,8 +13,12 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import java.util.List;
-import java.util.Locale;
+
+import java.text.ParseException;
+import java.util.*;
+import java.util.stream.Collectors;
+
+import static org.junit.Assert.assertTrue;
 
 public class FindTransactionsDefs {
 
@@ -25,7 +30,7 @@ public class FindTransactionsDefs {
         BrowserUtils.waitFor(2);
         String subTitle = new AccountActivityPage().findTransactionsTitle.getText();
         System.out.println("subTitle = " + subTitle);
-        Assert.assertTrue(subTitle.contains("Find Transactions"));
+        assertTrue(subTitle.contains("Find Transactions"));
 
     }
 
@@ -45,12 +50,33 @@ public class FindTransactionsDefs {
     }
 
     @Then("results table should only show transactions dates between {string} to {string}")
-    public void results_table_should_only_show_transactions_dates_between_to(String string, String string2) {
+    public void results_table_should_only_show_transactions_dates_between_to(String fromDate, String toDate) throws ParseException {
         List<WebElement> Date = new AccountActivityPage().dates;
-
+        BrowserUtils.waitFor(2);
         for (int i = 0; i < Date.size(); i++) {
             String date = Date.get(i).getText();
-            new AccountActivityPage().comp_Dates(date);
+            System.out.println(date);
+            boolean result = new AccountActivityPage().comp_Dates(date, fromDate, toDate);
+            assertTrue(result);
+        }
+    }
+
+    @Then("the results should be sorted by most recent date")
+    public void the_results_should_be_sorted_by_most_recent_date() {
+        List<Date> dateList = new AccountActivityPage().getWeblements(new AccountActivityPage().dateList);
+        List<Date> sortedDateList = new AccountActivityPage().getWeblements(new AccountActivityPage().dateList);
+        Collections.sort(sortedDateList);
+        Collections.reverse(sortedDateList);
+        System.out.println(dateList);
+        System.out.println(sortedDateList);
+        Assert.assertEquals(sortedDateList,dateList);
+    }
+
+    @Then("the results table should only not contain transactions dated {string}")
+    public void the_results_table_should_only_not_contain_transactions_dated(String date) {
+        List<String> listOfDates = BrowserUtils.getElementsText(new AccountActivityPage().dateList);
+        for (String listOfDate : listOfDates) {
+            Assert.assertFalse(listOfDate.contains(date));
         }
     }
 
@@ -69,7 +95,7 @@ public class FindTransactionsDefs {
         List<String> descWithOnline = BrowserUtils.getElementsText(new AccountActivityPage().descriptionResult);
         for (String element : descWithOnline) {
             System.out.println("element.getText() = " + element);
-            Assert.assertTrue(element.contains(str));
+            assertTrue(element.contains(str));
         }
     }
 
@@ -78,7 +104,7 @@ public class FindTransactionsDefs {
         BrowserUtils.waitFor(2);
        List<WebElement> descWithOffice = new AccountActivityPage().descriptionResult;
         for (WebElement element : descWithOffice) {
-            Assert.assertTrue(!element.getText().contains(str));
+            assertTrue(!element.getText().contains(str));
         }
     }
 
@@ -86,14 +112,14 @@ public class FindTransactionsDefs {
     public void results_table_should_show_at_least_one_result_under_Deposit() {
         BrowserUtils.waitFor(2);
        List<WebElement> deposit = new AccountActivityPage().valueOfDeposit;
-        Assert.assertTrue(deposit.size()>=0);
+        assertTrue(deposit.size()>=0);
     }
 
     @Then("results table should show at least one result under Withdrawal")
     public void results_table_should_show_at_least_one_result_under_Withdrawal() {
         BrowserUtils.waitFor(2);
         List<WebElement> withdrawal = new AccountActivityPage().valueOfWithdrawal;
-        Assert.assertTrue(withdrawal.size()>=0);
+        assertTrue(withdrawal.size()>=0);
     }
 
     @When("user selects type “Deposit”")
@@ -124,7 +150,7 @@ public class FindTransactionsDefs {
         List<WebElement> valueOfDeposit = new AccountActivityPage().valueOfDeposit;
         for (WebElement elementDeposit : valueOfDeposit) {
             System.out.println("elementDeposit.getText() = " + elementDeposit.getText());
-            Assert.assertTrue(!elementDeposit.isDisplayed());
+            assertTrue(!elementDeposit.isDisplayed());
         }
     }
 
