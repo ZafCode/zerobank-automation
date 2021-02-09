@@ -1,4 +1,4 @@
-@payee
+@payee @all
 Feature: Add new payee under pay bills
 
   Scenario: Verify to add a new payee

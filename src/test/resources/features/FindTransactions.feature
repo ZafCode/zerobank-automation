@@ -1,11 +1,11 @@
-@transaction
+@transaction @all
 Feature: Find Transactions in Account Activity
 
   Background:
     Given the user accesses the Find Transactions tab
 
 
-@wip
+
   Scenario: Verifying search date range
     When the user enters date range from "2012-09-01" to "2012-09-06"
     And clicks search

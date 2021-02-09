@@ -1,4 +1,4 @@
-@activity
+@activity @all
 Feature: Navigating to specific accounts in Accounts Activity
 
   Background:

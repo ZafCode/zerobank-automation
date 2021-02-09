@@ -1,5 +1,6 @@
 package com.zerobank.pages;
 
+import com.zerobank.utilities.BrowserUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -59,6 +60,7 @@ public class PayBillsPage extends BasePage{
 
 
     public void addPayee(String payName, String payAddress, String account, String details){
+        BrowserUtils.waitForClickablility(addNewPayee,4);
         payeeName.sendKeys(payName);
         payeeAddress.sendKeys(payAddress);
         payeeAccount.sendKeys(account);

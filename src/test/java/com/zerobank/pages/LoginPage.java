@@ -34,6 +34,7 @@ public class LoginPage {
     public WebElement invalidLoginMsg;
 
     public void login(String username, String password){
+
         signInBtn.click();
         usernameInput.sendKeys(username);
         passwordInput.sendKeys(password);

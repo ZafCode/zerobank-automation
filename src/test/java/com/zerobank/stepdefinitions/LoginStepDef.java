@@ -28,9 +28,9 @@ public class LoginStepDef {
         Assert.assertEquals("Verify page title", expectedTitle,actualTitle);
     }
 
-    @When("user logs in with wrong username")
-    public void user_logs_in_with_wrong_username() {
-        new LoginPage().loginInvalid("Wrong", ConfigurationReader.get("password"));
+    @When("user logs in with {string} and {string}")
+    public void user_logs_in_with_and(String username, String password) {
+        new LoginPage().loginInvalid( username,password );
     }
 
     @Then("error message {string} should be displayed")
@@ -39,22 +39,6 @@ public class LoginStepDef {
         String actualMsg = new LoginPage().invalidLoginMsg.getText();
         Assert.assertEquals("Verify wrong login message", expectedMsg,actualMsg);
     }
-
-    @Then("user logs in with wrong password")
-    public void user_logs_in_with_wrong_password() {
-        new LoginPage().loginInvalid( ConfigurationReader.get("username"),"Wrong" );
-    }
-
-    @Then("user logs in with blank username")
-    public void user_logs_in_with_blank_username() {
-        new LoginPage().loginInvalid("", ConfigurationReader.get("password"));
-    }
-
-    @Then("user logs in with blank password")
-    public void user_logs_in_with_blank_password() {
-        new LoginPage().loginInvalid( ConfigurationReader.get("username"),"" );
-    }
-
 
     @Given("the user is logged in")
     public void the_user_is_logged_in() {

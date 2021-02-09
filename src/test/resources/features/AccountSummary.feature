@@ -1,4 +1,4 @@
-@summary
+@summary @all
 Feature: Account Summary Page's specifications
 
   Background:

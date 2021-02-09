@@ -1,4 +1,4 @@
-@login
+@login @all
 Feature: Login functionality
 
   Background:
@@ -8,20 +8,21 @@ Feature: Login functionality
     When user logs in with valid credentials
     Then Account summary page should be displayed
 
-  Scenario: Verify that users should not able to login with wrong username
-    When user logs in with wrong username
+
+  Scenario Outline: Verify that users should not able to login with invalid credentials
+
+    When user logs in with "<username>" and "<password>"
     Then error message "Login and/or password are wrong." should be displayed
 
-  Scenario: Verify that users should not able to login with wrong password
-    When user logs in with wrong password
-    Then error message "Login and/or password are wrong." should be displayed
+      Examples:
+      |username|password|
+      |wrong   |password|
+      |username|wrong   |
+      |wrong   |wrong   |
+      |        |password|
+      |username|        |
+      |        |        |
 
-  Scenario: Verify that users should not able to login with blank username
-    When user logs in with blank username
-    Then error message "Login and/or password are wrong." should be displayed
 
-  Scenario: Verify that users should not able to login with wrong username
-    When user logs in with blank password
-    Then error message "Login and/or password are wrong." should be displayed
 
 

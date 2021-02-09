@@ -1,4 +1,4 @@
-@currency
+@currency @all
 Feature: Purchase Foreign Currency
 
 
