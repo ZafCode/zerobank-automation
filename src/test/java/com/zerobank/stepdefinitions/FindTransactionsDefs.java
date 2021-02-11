@@ -122,10 +122,10 @@ public class FindTransactionsDefs {
         assertTrue(withdrawal.size()>=0);
     }
 
-    @When("user selects type “Deposit”")
-    public void user_selects_type_Deposit() {
+    @When("user selects type {string}")
+    public void user_selects_type(String selectType) {
         Select typeDropDown = new Select(new AccountActivityPage().selectType);
-        typeDropDown.selectByVisibleText("Deposit");
+        typeDropDown.selectByVisibleText(selectType);
         new AccountActivityPage().findButton.click();
     }
 
@@ -136,13 +136,6 @@ public class FindTransactionsDefs {
             System.out.println("elementWithdrawal.getText() = " + elementWithdrawal.getText());
             Assert.assertFalse(!elementWithdrawal.isDisplayed());
         }
-    }
-
-    @When("user selects type “Withdrawal”")
-    public void user_selects_type_Withdrawal() {
-        Select typeDropDown = new Select(new AccountActivityPage().selectType);
-        typeDropDown.selectByVisibleText("Withdrawal");
-        new AccountActivityPage().findButton.click();
     }
 
     @Then("results table should show no result under Deposit")
