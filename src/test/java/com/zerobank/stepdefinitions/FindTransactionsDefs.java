@@ -1,24 +1,23 @@
 package com.zerobank.stepdefinitions;
 
-import com.google.common.collect.Ordering;
+import static org.junit.Assert.assertTrue;
+
+import java.text.ParseException;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+
 import com.zerobank.pages.AccountActivityPage;
 import com.zerobank.utilities.BrowserUtils;
-import com.zerobank.utilities.Driver;
+
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.en_old.Ac;
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-
-import java.text.ParseException;
-import java.util.*;
-import java.util.stream.Collectors;
-
-import static org.junit.Assert.assertTrue;
 
 public class FindTransactionsDefs {
 

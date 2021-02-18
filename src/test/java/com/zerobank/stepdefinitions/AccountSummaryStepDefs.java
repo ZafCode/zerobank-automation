@@ -1,12 +1,11 @@
 package com.zerobank.stepdefinitions;
 
-import com.zerobank.pages.AccountActivityPage;
 import com.zerobank.pages.AccountSummaryPage;
 import com.zerobank.utilities.BrowserUtils;
 import com.zerobank.utilities.Driver;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.support.ui.Select;
+
 
 import java.util.List;
 

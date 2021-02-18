@@ -5,3 +5,6 @@
 .settings/org.eclipse.jdt.core.prefs
 .gitignore
 .DS_Store
+/.vscode/
+/bin/
+
